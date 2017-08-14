@@ -1,0 +1,38 @@
+import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { HomeComponent } from './home.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UsersComponent } from './users/users.component';
+import { DevicesComponent } from './devices/devices.component';
+import { SmsComponent } from './sms/sms.component';
+import { LogsComponent } from './logs/logs.component';
+
+const homeRoutes: Routes = [
+  {
+    path: 'home',
+    component: HomeComponent,
+    children: [
+      {
+        path: '',
+        children: [
+          { path: '', component: DashboardComponent },
+          { path: 'users', component: UsersComponent },
+          { path: 'devices', component: DevicesComponent },
+          { path: 'sms', component: SmsComponent },
+          { path: 'logs', component: LogsComponent }
+        ]
+      }
+    ]
+  }
+];
+
+@NgModule({
+  imports: [
+    RouterModule.forChild(homeRoutes),
+    CommonModule
+  ],
+  declarations: [LogsComponent]
+})
+export class HomeModule { }

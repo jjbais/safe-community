@@ -36,12 +36,29 @@ import {
   OverlayModule
 } from '@angular/material';
 
+import { HomeModule } from './pages/home/home.module';
+
 import { AppComponent } from './app.component';
+import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
+import { DashboardComponent } from './pages/home/dashboard/dashboard.component';
+import { UsersComponent } from './pages/home/users/users.component';
+import { DevicesComponent } from './pages/home/devices/devices.component';
+import { SmsComponent } from './pages/home/sms/sms.component';
+import { LogsComponent } from './pages/home/logs/logs.component';
+
+import { DatabaseService } from './services/database.service';
+import { MqttService } from './services/mqtt.service';
+import { AuthService } from './services/auth.service';
 
 const appRoutes: Routes = [
   {
     path: '',
-    component: AppComponent
+    component: LoginComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   },
   {
     path: '**',
@@ -51,7 +68,13 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    HomeComponent,
+    DashboardComponent,
+    UsersComponent,
+    DevicesComponent,
+    SmsComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -89,9 +112,10 @@ const appRoutes: Routes = [
     MdTabsModule,
     MdToolbarModule,
     MdTooltipModule,
-    OverlayModule
+    OverlayModule,
+    HomeModule
   ],
-  providers: [],
+  providers: [DatabaseService, MqttService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

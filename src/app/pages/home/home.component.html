@@ -1,0 +1,20 @@
+<md-toolbar color="primary">
+  <span>Smart Green Municipality</span>
+  <span class="spacer"></span>
+  <span>Hi, Jerome</span>
+  <span><button md-raised-button color="accent">Logout</button></span>
+</md-toolbar>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-5 col-md-1">
+      <a id="sidenav" routerLink="./" md-fab title="Dashboard"><i class="material-icons">dashboard</i></a>
+      <a id="sidenav" routerLink="./users" md-fab title="Users"><i class="material-icons">account_circle</i></a>
+      <a id="sidenav" routerLink="./devices" md-fab title="Devices"><i class="material-icons">devices</i></a>
+      <a id="sidenav" routerLink="./sms" md-fab title="SMS"><i class="material-icons">textsms</i></a>
+      <a id="sidenav" routerLink="./logs" md-fab title="Logs"><i class="material-icons">event_note</i></a>
+    </div>
+    <div class="col-sm-5 col-md-11">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
