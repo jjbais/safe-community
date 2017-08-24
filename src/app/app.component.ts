@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
-import { DatabaseService } from './services/database.service';
-import { MqttService } from './services/mqtt.service';
-import { AuthService } from './services/auth.service';
+import { DatabaseService } from 'app/services/database.service';
+import { MqttService } from 'app/services/mqtt.service';
+import { AuthService } from 'app/services/auth.service';
 
 @Component({
   selector: 'app-root',

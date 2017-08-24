@@ -28,20 +28,30 @@ export class DatabaseService {
 
   }
 
-  deleteAdmin() {
+  deleteAdmin(adminId: number) {
+    const removeAdmin = this.ADMINS.find((admin: Admin) => admin.id === adminId);
+    if (removeAdmin) {
+      this.ADMINS.splice(this.ADMINS.indexOf(removeAdmin));
+    }
+  }
+
+  addUser(addUser: User) {
+    const duplicate = this.USERS.find((user: User) => user.id === addUser.id);
+    if (!duplicate) {
+      addUser.id = this.USERS[this.USERS.length - 1].id + 1;
+      this.USERS.push(addUser);
+    }
+  }
+
+  updateUser(updateUser: User) {
 
   }
 
-  addUser() {
-
-  }
-
-  updateUser() {
-
-  }
-
-  deleteUser() {
-
+  deleteUser(userId: number) {
+    const removeUser = this.USERS.find((user: User) => user.id === userId);
+    if (removeUser) {
+      this.USERS.splice(this.USERS.indexOf(removeUser));
+    }
   }
 
   addDevice(deviceId: number) {
