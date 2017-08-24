@@ -7,9 +7,54 @@ import { Log } from 'app/models/log';
 
 @Injectable()
 export class DatabaseService {
-  ADMINS: Admin[] = [];
-  USERS: User[] = [];
-  DEVICES: Device[] = [];
+  ADMINS: Admin[] = [
+    {
+      id: 0,
+      username: 'admin',
+      password: 'admin',
+      fullname: 'Administrator'
+    }
+  ];
+  USERS: User[] = [
+    {
+      id: 0,
+      deviceId: 0,
+      lat: 14.563481,
+      long: 120.591149,
+      userType: 'resident',
+      name: 'Angelo James',
+      address: '0624 Reformista Street, Limay, Bataan',
+      mobile: '09287654234'
+    },
+    {
+      id: 1,
+      deviceId: 1,
+      lat: 14.563188,
+      long: 120.591134,
+      userType: 'resident',
+      name: 'Jerome Joseph',
+      address: '0627 Reformista Street, Limay, Bataan',
+      mobile: '09287654234'
+    }
+  ];
+  DEVICES: Device[] = [
+    {
+      id: 0,
+      trigger: false,
+      connection: false,
+      payload: '',
+      power: false,
+      battery: 0
+    },
+    {
+      id: 1,
+      trigger: false,
+      connection: false,
+      payload: '',
+      power: false,
+      battery: 0
+    }
+  ];
   ALERTS: User[] = [];
   LOGS: Log[] = [];
 
