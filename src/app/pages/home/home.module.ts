@@ -8,6 +8,7 @@ import { UsersComponent } from './users/users.component';
 import { DevicesComponent } from './devices/devices.component';
 import { SmsComponent } from './sms/sms.component';
 import { LogsComponent } from './logs/logs.component';
+import { AuthGuard } from 'app/guards/auth.guard';
 
 const homeRoutes: Routes = [
   {
@@ -16,6 +17,7 @@ const homeRoutes: Routes = [
     children: [
       {
         path: '',
+        canActivate: [AuthGuard],
         children: [
           { path: '', component: DashboardComponent },
           { path: 'users', component: UsersComponent },

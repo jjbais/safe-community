@@ -1,3 +1,33 @@
-<p>
-  login works!
-</p>
+<md-toolbar color="primary">
+  <span class="spacer"></span>
+  <span>Smart Green Municipality</span>
+  <span class="spacer"></span>
+</md-toolbar>
+
+<div class="container-fluid" id='container'>
+  <div class="row justify-content-center">
+    <div class="col-sm-8 col-md-3">
+      <md-card>
+        <img src="assets/logo.png" alt="logo" class="logo">
+        <form (ngSubmit)="logIn()">
+          <md-card-title>Login</md-card-title>
+          <md-card-content>
+            <div class="form-group">
+              <md-input-container class="full-width">
+                <input mdInput type="text" placeholder="Username" name="username" [(ngModel)]="username" required>
+              </md-input-container>
+            </div>
+            <div class="form-group full-width">
+              <md-input-container class="full-width">
+                <input mdInput type="password" placeholder="Password" name="password" [(ngModel)]="password" required>
+              </md-input-container>
+            </div>
+          </md-card-content>
+          <md-card-actions>
+            <button md-raised-button type="submit" color="primary">Log In</button>
+          </md-card-actions>
+        </form>
+      </md-card>
+    </div>
+  </div>
+</div>

@@ -3,4 +3,5 @@ export class Admin {
     username: string;
     password: string;
     fullname: string;
+    mobile: string;
 }

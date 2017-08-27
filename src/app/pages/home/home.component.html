@@ -1,8 +1,9 @@
 <md-toolbar color="primary">
-  <span>Smart Green Municipality</span>
+  <span><a routerLink="./"><img src="assets/logo.png" alt="logo" class="logo"></a></span>
+  <span>Municipality of Limay</span>
   <span class="spacer"></span>
-  <span>Hi, Jerome</span>
-  <span><button md-raised-button color="accent">Logout</button></span>
+  <span>Hi, {{currentUser.fullname}}</span>
+  <span><button md-raised-button color="accent" (click)="logOut()">Logout</button></span>
 </md-toolbar>
 <div class="container-fluid">
   <div class="row">
@@ -14,7 +15,9 @@
       <a id="sidenav" routerLink="./logs" md-fab title="Logs"><i class="material-icons">event_note</i></a>
     </div>
     <div class="col-sm-5 col-md-11">
-      <router-outlet></router-outlet>
+      <div class="container-fluid">
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </div>
 </div>

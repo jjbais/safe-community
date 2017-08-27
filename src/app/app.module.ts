@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import 'hammerjs';
 import {
@@ -35,6 +36,7 @@ import {
   MdTooltipModule,
   OverlayModule
 } from '@angular/material';
+import { AgmCoreModule } from '@agm/core';
 
 import { HomeModule } from './pages/home/home.module';
 
@@ -50,6 +52,14 @@ import { LogsComponent } from './pages/home/logs/logs.component';
 import { DatabaseService } from './services/database.service';
 import { MqttService } from './services/mqtt.service';
 import { AuthService } from './services/auth.service';
+import { DialogService } from './services/dialog.service';
+
+import { AuthGuard } from './guards/auth.guard';
+
+import { AddAdminComponent } from './components/add-admin/add-admin.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
+import { AddDeviceComponent } from './components/add-device/add-device.component';
+import { PopUpMessageComponent } from './components/pop-up-message/pop-up-message.component';
 
 const appRoutes: Routes = [
   {
@@ -74,7 +84,17 @@ const appRoutes: Routes = [
     DashboardComponent,
     UsersComponent,
     DevicesComponent,
-    SmsComponent
+    SmsComponent,
+    AddAdminComponent,
+    AddUserComponent,
+    AddDeviceComponent,
+    PopUpMessageComponent
+  ],
+  entryComponents: [
+    AddAdminComponent,
+    AddUserComponent,
+    AddDeviceComponent,
+    PopUpMessageComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -82,6 +102,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     ),
     BrowserModule,
+    FormsModule,
     BrowserAnimationsModule,
     MdAutocompleteModule,
     MdButtonModule,
@@ -113,9 +134,12 @@ const appRoutes: Routes = [
     MdToolbarModule,
     MdTooltipModule,
     OverlayModule,
-    HomeModule
+    HomeModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCeIcYRl-tih-RWxM8AAgN2aYmyq44AspA'
+    })
   ],
-  providers: [DatabaseService, MqttService, AuthService],
+  providers: [DatabaseService, MqttService, AuthService, DialogService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

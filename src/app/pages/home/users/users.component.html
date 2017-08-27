@@ -1,3 +1,84 @@
-<p>
-  users works!
-</p>
+<h1>Users</h1>
+<md-tab-group>
+  <md-tab>
+    <ng-template md-tab-label>
+      Residents
+      <button md-icon-button (click)="openDialogAddUser()"><i class="material-icons">add</i></button>
+    </ng-template>
+    <div class="container-fluid">
+      <div class="row">
+        <table class="table table-hover text-center">
+          <thead class="thead-inverse">
+            <tr>
+              <th class="text-center">Type</th>
+              <th class="text-center">Name</th>
+              <th class="text-center">Address</th>
+              <th class="text-center">Mobile Number</th>
+              <th class="text-center">Device ID</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>
+                <div *ngIf="user.userType == 'resident'; else userTypeElseBlock">
+                  <span class="badge badge-primary badge-pill">Resident</span>
+                </div>
+                <ng-template #userTypeElseBlock>
+                  <span class="badge badge-success badge-pill">Mobile</span>
+                </ng-template>
+              </td>
+              <td>
+                {{user.name}}
+              </td>
+              <td>
+                {{user.address}}
+              </td>
+              <td>
+                {{user.mobile}}
+              </td>
+              <td>
+                {{user.deviceId}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </md-tab>
+  <md-tab>
+    <ng-template md-tab-label>
+      Admin
+      <button md-icon-button (click)="openDialogAddAdmin()"><i class="material-icons">add</i></button>
+    </ng-template>
+    <div class="container-fluid">
+      <div class="row">
+        <table class="table table-hover text-center">
+          <thead class="thead-inverse">
+            <tr>
+              <th class="text-center">ID</th>
+              <th class="text-center">Fullname</th>
+              <th class="text-center">Username</th>
+              <th class="text-center">Mobile Number</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let admin of admins">
+              <td>
+                {{admin.id}}
+              </td>
+              <td>
+                {{admin.fullname}}
+              </td>
+              <td>
+                {{admin.username}}
+              </td>
+              <td>
+                {{admin.mobile}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </md-tab>
+</md-tab-group>

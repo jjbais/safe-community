@@ -12,7 +12,8 @@ export class DatabaseService {
       id: 0,
       username: 'admin',
       password: 'admin',
-      fullname: 'Administrator'
+      fullname: 'Administrator',
+      mobile: '09279574701'
     }
   ];
   USERS: User[] = [
@@ -23,7 +24,7 @@ export class DatabaseService {
       long: 120.591149,
       userType: 'resident',
       name: 'Angelo James',
-      address: '0624 Reformista Street, Limay, Bataan',
+      address: '0624 Reformista Street',
       mobile: '09287654234'
     },
     {
@@ -33,7 +34,7 @@ export class DatabaseService {
       long: 120.591134,
       userType: 'resident',
       name: 'Jerome Joseph',
-      address: '0627 Reformista Street, Limay, Bataan',
+      address: '0627 Reformista Street',
       mobile: '09287654234'
     }
   ];
@@ -55,7 +56,16 @@ export class DatabaseService {
       battery: 0
     }
   ];
-  ALERTS: User[] = [];
+  ALERTS: User[] = [{
+    id: 0,
+    deviceId: 0,
+    lat: 14.563481,
+    long: 120.591149,
+    userType: 'resident',
+    name: 'Angelo James',
+    address: '0624 Reformista Street',
+    mobile: '09287654234'
+  }];
   LOGS: Log[] = [];
 
   constructor() {

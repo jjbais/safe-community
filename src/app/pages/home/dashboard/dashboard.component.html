@@ -1,3 +1,40 @@
-<p>
-  dashboard works!
-</p>
+<h1>Dashboard</h1>
+<div class="row">
+  <div class="col-5">
+    <md-tab-group>
+      <md-tab>
+        <ng-template md-tab-label>
+          Residents
+          <span class="badge badge-danger badge-pill"><div *ngIf="db.ALERTS.length">{{db.ALERTS.length}}</div></span>
+        </ng-template>
+        <md-card *ngFor="let alert of alerts">
+          <md-card-title>
+            {{alert.name}}
+          </md-card-title>
+          <p>{{alert.address}}</p>
+          <p>{{alert.mobile}}</p>
+          <md-card-actions>
+            <button color="primary" md-mini-fab><i class="material-icons" (click)="centerCamera(alert.lat, alert.long)">place</i></button>
+            <button color="warn" md-mini-fab (click)="dismiss(alert.id)"><i class="material-icons">clear</i></button>
+          </md-card-actions>
+        </md-card>
+      </md-tab>
+      <md-tab>
+        <ng-template md-tab-label>
+          Mobile <span class="badge badge-danger badge-pill"></span>
+        </ng-template>
+      </md-tab>
+    </md-tab-group>
+  </div>
+  <div class="col-7">
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+      <agm-marker *ngFor="let alert of alerts" [latitude]="alert.lat" [longitude]="alert.long">
+        <agm-info-window>
+          <strong>{{alert.name}}</strong><br>
+          <span>{{alert.address}}</span><br>
+          <span>{{alert.mobile}}</span>
+        </agm-info-window>
+      </agm-marker>
+    </agm-map>
+  </div>
+</div>
