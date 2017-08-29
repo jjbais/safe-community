@@ -16,12 +16,12 @@ export class MqttService {
 
   constructor(public db: DatabaseService) {
     this.connectionType = 'ws';
-    this.url = 'iot.eclipse.org'; // safe.local, iot.eclipse.org
-    this.port = '80/ws';          // 1884, 80/ws
+    this.url = 'safe.local'; // safe.local, iot.eclipse.org
+    this.port = '1884';          // 1884, 80/ws
 
     this.brokerUrl = this.connectionType + '://' + this.url + ':' + this.port;
     this.isConnected = false;
-    this.rootTopic = 'community1/';
+    this.rootTopic = 'community/';
 
     this.connect(this.brokerUrl);
 
@@ -55,7 +55,7 @@ export class MqttService {
     if (userType === 'resident') {
       this.db.updateDevice(Number.parseInt(deviceId), payloadType, payload);
     }
-    console.log(userType + ':' + payloadType + ':' + deviceId + ':' + payload);
+    // console.log(userType + ':' + payloadType + ':' + deviceId + ':' + payload);
   }
 
   publish(topic: string, payload: string) {

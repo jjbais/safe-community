@@ -1,3 +1,30 @@
-<p>
-  add-admin works!
-</p>
+<h2 md-dialog-title>
+  Add Admin
+</h2>
+<md-dialog-content>
+  <form (ngSubmit)="addAdmin()">
+
+    <div class="form-group">
+      <md-input-container class="full-width">
+        <input mdInput type="text" placeholder="Full Name" name="fullname" [(ngModel)]="admin.fullname" required>
+      </md-input-container>
+    </div>
+    <div class="form-group">
+      <md-input-container class="full-width">
+        <input mdInput type="text" placeholder="Username" name="username" [(ngModel)]="admin.username" required>
+      </md-input-container>
+    </div>
+    <div class="form-group">
+      <md-input-container class="full-width">
+        <input mdInput type="password" placeholder="Password" name="password" [(ngModel)]="admin.password" required>
+      </md-input-container>
+    </div>
+    <div class="form-group">
+      <md-input-container class="full-width">
+        <input mdInput type="number" placeholder="Mobile Number" name="mobile" [(ngModel)]="admin.mobile" required>
+      </md-input-container>
+    </div>
+    <button md-raised-button type="submit" color="primary" md-dialog-close>Add Admin</button>
+    <button md-raised-button md-dialog-close>Cancel</button>
+  </form>
+</md-dialog-content>

@@ -86,7 +86,7 @@ export class DatabaseService {
   deleteAdmin(adminId: number) {
     const removeAdmin = this.ADMINS.find((admin: Admin) => admin.id === adminId);
     if (removeAdmin) {
-      this.ADMINS.splice(this.ADMINS.indexOf(removeAdmin));
+      this.ADMINS.splice(this.ADMINS.indexOf(removeAdmin), 1);
     }
   }
 
@@ -105,7 +105,7 @@ export class DatabaseService {
   deleteUser(userId: number) {
     const removeUser = this.USERS.find((user: User) => user.id === userId);
     if (removeUser) {
-      this.USERS.splice(this.USERS.indexOf(removeUser));
+      this.USERS.splice(this.USERS.indexOf(removeUser), 1);
     }
   }
 
@@ -130,6 +130,7 @@ export class DatabaseService {
         }
         updateDevice.connection = value;
       } else if (payloadType === 'trigger') {
+        console.log(this.ALERTS);
         let value: boolean;
         if (payload === '1') {
           value = true;
@@ -156,7 +157,7 @@ export class DatabaseService {
   removeDevice(deviceId: number) {
     const removeDevice = this.DEVICES.find((device: Device) => device.id === deviceId);
     if (removeDevice) {
-      this.DEVICES.splice(this.DEVICES.indexOf(removeDevice));
+      this.DEVICES.splice(this.DEVICES.indexOf(removeDevice), 1);
     }
   }
 
@@ -171,7 +172,7 @@ export class DatabaseService {
   removeAlert(deviceId: number) {
     const removeAlert: User = this.ALERTS.find((alert: User) => alert.deviceId === deviceId);
     if (removeAlert) {
-      this.ALERTS.splice(this.ALERTS.indexOf(removeAlert));
+      this.ALERTS.splice(this.ALERTS.indexOf(removeAlert), 1);
     }
   }
 

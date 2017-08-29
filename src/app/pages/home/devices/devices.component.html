@@ -1,6 +1,6 @@
 <div class="row">
-<h1>Devices</h1>
-<button md-icon-button (click)="openDialogAddDevice()" class="icon-margin"><i class="material-icons">add</i></button>
+  <h1>Devices</h1>
+  <button md-icon-button (click)="openDialogAddDevice()" class="icon-margin"><i class="material-icons">add</i></button>
 </div>
 <div class="row">
   <table class="table table-hover text-center">
@@ -20,8 +20,8 @@
           {{ getUser(device.id).name }}
         </td>
         <td class="text-center" scope="row">
-            {{ getUser(device.id).address }}
-          </td>
+          {{ getUser(device.id).address }}
+        </td>
         <td>
           <div *ngIf="device.connection; else connectionElseBlock">
             <span class="badge badge-success badge-pill">Online</span>
@@ -47,7 +47,10 @@
           </ng-template>
         </td>
         <td>
-          <div *ngIf="device.battery > 50; else batteryElseBlock">
+          <div *ngIf="device.battery > 100; else batteryElseBlock">
+            <span class="badge badge-success badge-pill">100 %</span>
+          </div>
+          <div *ngIf="device.battery > 50 && device.battery < 101; else batteryElseBlock">
             <span class="badge badge-success badge-pill">{{device.battery}} %</span>
           </div>
           <div *ngIf="device.battery > 20 && device.battery < 51; else batteryElseBlock">
