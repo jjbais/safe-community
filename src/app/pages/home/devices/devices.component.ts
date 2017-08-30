@@ -25,16 +25,8 @@ export class DevicesComponent implements OnInit {
   ngOnInit() {
   }
 
-  addDevice(deviceId: number) {
-    this.db.addDevice(deviceId);
-  }
-
   triggerOff(deviceId: number) {
     this.mqtt.triggerOff(deviceId);
-  }
-
-  openDialogAddDevice() {
-    this.dialog.addDevice();
   }
 
   getUser(deviceId: number): User {

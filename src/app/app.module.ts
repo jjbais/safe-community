@@ -58,7 +58,6 @@ import { AuthGuard } from './guards/auth.guard';
 
 import { AddAdminComponent } from './components/add-admin/add-admin.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
-import { AddDeviceComponent } from './components/add-device/add-device.component';
 import { PopUpMessageComponent } from './components/pop-up-message/pop-up-message.component';
 
 const appRoutes: Routes = [
@@ -87,13 +86,11 @@ const appRoutes: Routes = [
     SmsComponent,
     AddAdminComponent,
     AddUserComponent,
-    AddDeviceComponent,
     PopUpMessageComponent
   ],
   entryComponents: [
     AddAdminComponent,
     AddUserComponent,
-    AddDeviceComponent,
     PopUpMessageComponent
   ],
   imports: [

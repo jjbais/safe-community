@@ -1,3 +1,12 @@
-<p>
-  add-user works!
-</p>
+<h2 md-dialog-title>
+  Add User
+</h2>
+<md-dialog-content>
+  <div class="form-group">
+    <md-input-container class="full-width">
+      <input mdInput type="text" placeholder="Device ID" name="deviceId" [(ngModel)]="deviceId" required>
+    </md-input-container>
+  </div>
+  <button md-raised-button color="primary" [md-dialog-close]="deviceId">Add Device</button>
+  <button md-raised-button md-dialog-close>Cancel</button>
+</md-dialog-content>
