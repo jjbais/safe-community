@@ -11,7 +11,9 @@ export class DialogService {
   constructor(public dialog: MdDialog, public db: DatabaseService) { }
 
   addAdmin() {
-    const dialogRef = this.dialog.open(AddAdminComponent);
+    const dialogRef = this.dialog.open(AddAdminComponent, {
+      width: '30%',
+    });
     dialogRef.afterClosed().subscribe(result => {
       if (result != null || result !== '') {
         this.db.addAdmin(result);
@@ -20,7 +22,9 @@ export class DialogService {
   }
 
   addUser() {
-    const dialogRef = this.dialog.open(AddUserComponent);
+    const dialogRef = this.dialog.open(AddUserComponent, {
+      width: '30%',
+    });
     dialogRef.afterClosed().subscribe(result => {
       if (result != null || result !== '') {
         this.db.addUser(result);

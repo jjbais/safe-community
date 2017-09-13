@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DatabaseService } from 'app/services/database.service';
 import { Admin } from 'app/models/admin';
 
 @Component({
@@ -10,13 +9,9 @@ import { Admin } from 'app/models/admin';
 export class AddAdminComponent implements OnInit {
   admin: Admin = new Admin();
 
-  constructor(public db: DatabaseService) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  addAdmin() {
-    this.db.addAdmin(this.admin);
   }
 
 }

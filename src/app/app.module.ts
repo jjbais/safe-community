@@ -47,7 +47,7 @@ import { DashboardComponent } from './pages/home/dashboard/dashboard.component';
 import { UsersComponent } from './pages/home/users/users.component';
 import { DevicesComponent } from './pages/home/devices/devices.component';
 import { SmsComponent } from './pages/home/sms/sms.component';
-import { LogsComponent } from './pages/home/logs/logs.component';
+import { DatalogsComponent } from './pages/home/datalogs/datalogs.component';
 
 import { DatabaseService } from './services/database.service';
 import { MqttService } from './services/mqtt.service';
@@ -86,7 +86,8 @@ const appRoutes: Routes = [
     SmsComponent,
     AddAdminComponent,
     AddUserComponent,
-    PopUpMessageComponent
+    PopUpMessageComponent,
+    DatalogsComponent
   ],
   entryComponents: [
     AddAdminComponent,

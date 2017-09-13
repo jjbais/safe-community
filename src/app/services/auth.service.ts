@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DatabaseService } from './database.service';
 import { Admin } from 'app/models/admin';
+import { Log } from 'app/models/log';
 import { Router } from '@angular/router';
 import { DialogService } from 'app/services/dialog.service';
 
@@ -18,6 +19,11 @@ export class AuthService {
     const loggedAdmin = this.ADMINS.find((admin: Admin) => admin.username === username && admin.password === password);
     if (loggedAdmin) {
       localStorage.setItem('currentUser', JSON.stringify(loggedAdmin));
+      const log = new Log();
+      log.log = 'Admin ' + loggedAdmin.fullname + ' has logged in.';
+      log.timestamp = new Date();
+      log.type = 'admin';
+      this.db.addLog(log);
       this.router.navigateByUrl('/home');
     }else {
       localStorage.removeItem('currentUser');

@@ -4,9 +4,24 @@
 <md-dialog-content>
   <div class="form-group">
     <md-input-container class="full-width">
-      <input mdInput type="text" placeholder="Device ID" name="deviceId" [(ngModel)]="deviceId" required>
+      <input mdInput type="text" placeholder="Name" name="name" [(ngModel)]="user.name" required>
     </md-input-container>
   </div>
-  <button md-raised-button color="primary" [md-dialog-close]="deviceId">Add Device</button>
+  <div class="form-group">
+      <md-select placeholder="Type" [(ngModel)]="user.userType" floatPlaceholder="never">
+        <md-option *ngFor="let type of types" [value]="type">{{type}}</md-option>
+      </md-select>
+  </div>
+  <div class="form-group">
+    <md-input-container class="full-width">
+      <input mdInput type="text" placeholder="Address" name="address" [(ngModel)]="user.address" required>
+    </md-input-container>
+  </div>
+  <div class="form-group">
+    <md-input-container class="full-width">
+      <input mdInput type="text" placeholder="Mobile" name="mobile" [(ngModel)]="user.mobile">
+    </md-input-container>
+  </div>
+  <button md-raised-button color="primary" [md-dialog-close]="user">Add User</button>
   <button md-raised-button md-dialog-close>Cancel</button>
 </md-dialog-content>

@@ -7,7 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersComponent } from './users/users.component';
 import { DevicesComponent } from './devices/devices.component';
 import { SmsComponent } from './sms/sms.component';
-import { LogsComponent } from './logs/logs.component';
+import { DatalogsComponent } from './datalogs/datalogs.component';
 import { AuthGuard } from 'app/guards/auth.guard';
 
 const homeRoutes: Routes = [
@@ -23,7 +23,7 @@ const homeRoutes: Routes = [
           { path: 'users', component: UsersComponent },
           { path: 'devices', component: DevicesComponent },
           { path: 'sms', component: SmsComponent },
-          { path: 'logs', component: LogsComponent }
+          { path: 'logs', component: DatalogsComponent }
         ]
       }
     ]
@@ -35,6 +35,6 @@ const homeRoutes: Routes = [
     RouterModule.forChild(homeRoutes),
     CommonModule
   ],
-  declarations: [LogsComponent]
+  declarations: []
 })
 export class HomeModule { }

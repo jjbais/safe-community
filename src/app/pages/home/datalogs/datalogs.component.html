@@ -1,0 +1,84 @@
+<h1>Logs</h1>
+<md-tab-group>
+  <md-tab>
+    <ng-template md-tab-label>
+      Admin Logs
+    </ng-template>
+    <div class="container-fluid">
+      <div class="row">
+        <table class="table table-hover text-center">
+          <thead class="thead-inverse">
+            <tr>
+              <th width="30%" class="text-center">Timestamp</th>
+              <th width="70%" class="text-center">Log</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let adminLog of adminLogs">
+              <td>
+                {{adminLog.timestamp}}
+              </td>
+              <td>
+                {{adminLog.log}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </md-tab>
+  <md-tab>
+    <ng-template md-tab-label>
+      Trigger Logs
+    </ng-template>
+    <div class="container-fluid">
+      <div class="row">
+        <table class="table table-hover text-center">
+          <thead class="thead-inverse">
+            <tr>
+              <th class="text-center">Timestamp</th>
+              <th class="text-center">Log</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let adminLog of triggerLogs">
+              <td>
+                {{adminLog.timestamp}}
+              </td>
+              <td>
+                {{adminLog.log}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </md-tab>
+  <md-tab>
+      <ng-template md-tab-label>
+        Database Logs
+      </ng-template>
+      <div class="container-fluid">
+        <div class="row">
+          <table class="table table-hover text-center">
+            <thead class="thead-inverse">
+              <tr>
+                <th class="text-center">Timestamp</th>
+                <th class="text-center">Log</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let adminLog of dataLogs">
+                <td>
+                  {{adminLog.timestamp}}
+                </td>
+                <td>
+                  {{adminLog.log}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </md-tab>
+</md-tab-group>

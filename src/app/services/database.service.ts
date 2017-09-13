@@ -73,6 +73,11 @@ export class DatabaseService {
         addAdmin.id = this.ADMINS[this.ADMINS.length - 1].id + 1;
         this.ADMINS.push(addAdmin);
         this.openDialog('Admin ' + addAdmin.fullname + ' has been registered.', '/home/users');
+        const log = new Log();
+        log.log = 'Admin ' + addAdmin.fullname + ' has been registered.';
+        log.timestamp = new Date();
+        log.type = 'data';
+        this.addLog(log);
       }
     }
   }
@@ -97,11 +102,17 @@ export class DatabaseService {
       const duplicate = this.USERS.find((user: User) => user.id === addUser.id);
       if (!duplicate) {
         addUser.id = this.USERS[this.USERS.length - 1].id + 1;
+        addUser.deviceId = this.DEVICES[this.DEVICES.length - 1].id + 1;
         this.USERS.push(addUser);
         if (addUser.userType === 'resident') {
           this.addDevice();
         }
         this.openDialog('User ' + addUser.name + ' has been registered.', '/home/users');
+        const log = new Log();
+        log.log = 'User ' + addUser.name + ' has been registered.';
+        log.timestamp = new Date();
+        log.type = 'data';
+        this.addLog(log);
       }
     }
   }
@@ -120,9 +131,9 @@ export class DatabaseService {
   addDevice() {
     const id = this.DEVICES[this.DEVICES.length - 1].id + 1;
     console.log(id);
-      const addDevice = new Device();
-      addDevice.id = id;
-      this.DEVICES.push(addDevice);
+    const addDevice = new Device();
+    addDevice.id = id;
+    this.DEVICES.push(addDevice);
   }
 
   updateDevice(deviceId: number, payloadType: string, payload: string) {
@@ -172,7 +183,12 @@ export class DatabaseService {
     const addAlert: User = this.USERS.find((user: User) => user.deviceId === deviceId);
     if (addAlert && !duplicate) {
       this.ALERTS.push(addAlert);
-      this.openDialog('Device Triggered at '  + addAlert.address, '/home');
+      this.openDialog('Device Triggered at ' + addAlert.address, '/home');
+      const log = new Log();
+      log.log = 'Device in ' + addAlert.address + ' has been triggered.';
+      log.timestamp = new Date();
+      log.type = 'trigger';
+      this.addLog(log);
     }
   }
 
@@ -184,11 +200,7 @@ export class DatabaseService {
   }
 
   addLog(addLog: Log) {
-    const duplicate = this.LOGS.find((log: Log) => log.id === addLog.id);
-    if (!duplicate) {
-      addLog.id = this.ADMINS[this.ADMINS.length - 1].id + 1;
-      this.LOGS.push(addLog);
-    }
+    this.LOGS.push(addLog);
   }
 
   openDialog(message: string, redirectUrl: string) {
